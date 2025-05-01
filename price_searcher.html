@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اپ جستجوی قیمت المان</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .result-box {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4caf50;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            background-color: #e8f5e9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جستجوی قیمت المان</h1>
+        <input type="text" id="codeInput" class="input-box" placeholder="کد المان را وارد کنید" />
+        <div id="result" class="result-box" style="display: none;"> قیمت در حال بارگذاری...</div>
+        <button onclick="searchPrice()" class="input-box">جستجو</button>
+    </div>
+
+    <script>
+        const data = {
+            "E001": "12000",
+            "E002": "18000",
+            "E003": "25000",
+            "E004": "30000",
+            "E005": "5000"
+            // اطلاعات بیشتر را اینجا اضافه کنید
+        };
+
+        function searchPrice() {
+            let code = document.getElementById("codeInput").value.trim().toUpperCase();
+            let resultBox = document.getElementById("result");
+
+            if (data[code]) {
+                resultBox.style.display = 'block';
+                resultBox.textContent = "قیمت: " + data[code] + " تومان";
+            } else {
+                resultBox.style.display = 'block';
+                resultBox.textContent = "کد وارد شده یافت نشد.";
+            }
+        }
+    </script>
+</body>
+</html>
